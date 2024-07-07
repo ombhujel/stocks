@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock OHLC Chart</title>
+</head>
+<body>
+    <h1>Stock OHLC Chart</h1>
+    <form action="/" method="post">
+        <label for="symbol">Enter Stock Symbol:</label>
+        <input type="text" id="symbol" name="symbol" required>
+        <button type="submit">Generate Chart</button>
+    </form>
+
+    {% if plot_image %}
+    <h2>OHLC Chart for {{ plot_image.ticker }}</h2>
+    <img src="data:image/png;base64,{{ plot_image }}" alt="OHLC Chart">
+    {% endif %}
+</body>
+</html>
